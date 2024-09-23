@@ -196,6 +196,7 @@ const Registration = () => {
             />
           </div>
           <input
+          hidden
                 type="text"
                 className="form-control"
                 value="customer"
