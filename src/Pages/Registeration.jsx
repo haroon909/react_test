@@ -10,7 +10,6 @@ const Registration = () => {
   const [UserPassword, setUserPassword] = useState("");
   const [userRole, setUserRole] = useState("");
 
-
   const toastDealing = (message, type) => {
     if (type === "danger") {
       toast.error(message, {
@@ -103,23 +102,23 @@ const Registration = () => {
     }
   };
 
-//   const fetchCourses = async () => {
-//     try {
-//       const response = await fetch("https://66d806e137b1cadd8053106b.mockapi.io/Courses");
-//       if (response.ok) {
-//         const data = await response.json();
-//         setCourses(data);
-//       } else {
-//         throw new Error("Failed to fetch courses.");
-//       }
-//     } catch (error) {
-//       toastDealing(error.message, "danger");
-//     }
-//   };
+  //   const fetchCourses = async () => {
+  //     try {
+  //       const response = await fetch("https://66d806e137b1cadd8053106b.mockapi.io/Courses");
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setCourses(data);
+  //       } else {
+  //         throw new Error("Failed to fetch courses.");
+  //       }
+  //     } catch (error) {
+  //       toastDealing(error.message, "danger");
+  //     }
+  //   };
 
-//   useEffect(() => {
-//     fetchCourses();
-//   }, []);
+  //   useEffect(() => {
+  //     fetchCourses();
+  //   }, []);
 
   return (
     <>
@@ -155,17 +154,17 @@ const Registration = () => {
             </div>
           </div>
           <div className="mb-3 mt-5">
-              <label htmlFor="NickName" className="form-label">
-                Last Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Kaya khaas naam hai tumara"
-                value={userLName}
-                onChange={(e) => setUserNickName(e.target.value)}
-              />
-            </div>
+            <label htmlFor="NickName" className="form-label">
+              NickName
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Kaya khaas naam hai tumara"
+              value={userLName}
+              onChange={(e) => setUserNickName(e.target.value)}
+            />
+          </div>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
               Email address
