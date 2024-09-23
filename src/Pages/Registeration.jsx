@@ -183,7 +183,7 @@ console.log(newUser);
                 type="text"
                 className="form-control"
                 value="customer"
-                onChange={(e) => setUserFName(e.target.value)}
+                onChange={(e) => setUserRole(e.target.value)}
               />
           <button type="submit" className="btn btn-primary">
             Submit
