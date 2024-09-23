@@ -195,66 +195,6 @@ const Registration = () => {
               onChange={(e) => setUserPassword(e.target.value)}
             />
           </div>
-          <div className="mb-3 row">
-            <div className="col">
-              <label htmlFor="height" className="form-label">
-                Height
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="height"
-                placeholder="155CM"
-                value={userHeight}
-                onChange={(e) => setUserHeight(e.target.value)}
-              />
-            </div>
-            <div className="col">
-              <label htmlFor="weight" className="form-label">
-                Weight
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="weight"
-                placeholder="60Kg"
-                value={userWeight}
-                onChange={(e) => setUserWeight(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="mb-3 row">
-            <div className="col">
-              <label htmlFor="gender" className="form-label">
-                Gender
-              </label>
-              <select
-                className="form-select"
-                id="gender"
-                value={userGender}
-                onChange={(e) => setUserGender(e.target.value)}
-              >
-                <option value="">Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </div>
-            <div className="col">
-              <label htmlFor="role" className="form-label">
-                Role
-              </label>
-              <select
-                className="form-select"
-                id="role"
-                value={userRole}
-                onChange={(e) => setUserRole(e.target.value)}
-              >
-                <option value="">Role</option>
-                <option value="admin">Admin</option>
-                <option value="student">Student</option>
-              </select>
-            </div>
-          </div>
 
           <button type="submit" className="btn btn-primary">
             Submit
