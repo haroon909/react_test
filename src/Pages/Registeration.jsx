@@ -198,7 +198,7 @@ const Registration = () => {
           <input
                 type="text"
                 className="form-control"
-                value={userFName}
+                value="customer"
                 onChange={(e) => setUserFName(e.target.value)}
               />
           <button type="submit" className="btn btn-primary">
