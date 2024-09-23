@@ -154,6 +154,19 @@ const Registration = () => {
               />
             </div>
           </div>
+          <div className="col">
+              <label htmlFor="lastName" className="form-label">
+                Last Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="lastName"
+                placeholder="Also SomeOne"
+                value={userLName}
+                onChange={(e) => setUserLName(e.target.value)}
+              />
+            </div>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
               Email address
