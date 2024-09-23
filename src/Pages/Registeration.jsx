@@ -46,7 +46,7 @@ const Registration = () => {
       return;
     }
 
-    if (!userGender) {
+    if (!userNickName) {
       toastDealing("Gender is required", "danger");
       return;
     }
@@ -56,10 +56,6 @@ const Registration = () => {
       return;
     }
 
-    if (!userCourse) {
-      toastDealing("Course is required", "danger");
-      return;
-    }
 
     const newUser = {
       fname: userFName,
