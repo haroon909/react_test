@@ -154,8 +154,8 @@ const Registration = () => {
               />
             </div>
           </div>
-          <div className="col">
-              <label htmlFor="lastName" className="form-label">
+          <div className="mb-3 mt-5">
+              <label htmlFor="NickName" className="form-label">
                 Last Name
               </label>
               <input
