@@ -83,7 +83,7 @@ console.log(newUser);
 //     } catch (error) {
 //       toastDealing(error.message, "danger");
 //     }
-//   };
+  };
 
   //   const fetchCourses = async () => {
   //     try {
