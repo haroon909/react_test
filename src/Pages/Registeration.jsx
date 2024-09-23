@@ -248,9 +248,7 @@ const Registration = () => {
             </div>
           </div>
           <div className="mb-3">
-            <label htmlFor="course" className="form-label">
-              Courses
-            </label>
+            
             <select
               className="form-select"
               id="course"
