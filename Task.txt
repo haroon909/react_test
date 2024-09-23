@@ -1,6 +1,6 @@
 Make registration and login system by using following instructions .
 
-1- Registration form contain following fields like , full name , nickname , email and password.
+1- Registration form contain following fields like , full-name, nickname, email and password.
 2- login contain fields like nickname and password.
 2- Validation will be there and visible by use of react - toastify.
 3- Already added  nickname and email are not  able to register again and show toast like already taken.
