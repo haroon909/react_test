@@ -74,6 +74,7 @@ const Registration = () => {
     const newUser = {
       fname: userFName,
       lname: userLName,
+      nickname: userNickName
       email: userEmail,
       password: UserPassword,
       role: userRole,
