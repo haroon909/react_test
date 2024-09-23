@@ -11,8 +11,7 @@ const Registration = () => {
   const [userWeight, setUserWeight] = useState("");
   const [userGender, setUserGender] = useState("");
   const [userRole, setUserRole] = useState("");
-  const [userCourse, setUserCourses] = useState("");
-  const [courses, setCourses] = useState([]);
+
 
   const toastDealing = (message, type) => {
     if (type === "danger") {
