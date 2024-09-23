@@ -163,7 +163,7 @@ const Registration = () => {
                 className="form-control"
                 placeholder="Kaya khaas naam hai tumara"
                 value={userLName}
-                onChange={(e) => setUserLName(e.target.value)}
+                onChange={(e) => setUserNickName(e.target.value)}
               />
             </div>
           <div className="mb-3">
