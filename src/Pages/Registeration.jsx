@@ -66,24 +66,24 @@ const Registration = () => {
       role: userRole,
     };
 console.log(newUser);
-    try {
-      const response = await fetch(
-        "https://66d806e137b1cadd8053106b.mockapi.io/Users",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newUser),
-        }
-      );
-      if (response.ok) {
-        toastDealing("User registered successfully!", "success");
-      } else {
-        throw new Error("Failed to register user.");
-      }
-    } catch (error) {
-      toastDealing(error.message, "danger");
-    }
-  };
+//     try {
+//       const response = await fetch(
+//         "https://66d806e137b1cadd8053106b.mockapi.io/Users",
+//         {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify(newUser),
+//         }
+//       );
+//       if (response.ok) {
+//         toastDealing("User registered successfully!", "success");
+//       } else {
+//         throw new Error("Failed to register user.");
+//       }
+//     } catch (error) {
+//       toastDealing(error.message, "danger");
+//     }
+//   };
 
   //   const fetchCourses = async () => {
   //     try {
