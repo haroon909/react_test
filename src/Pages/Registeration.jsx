@@ -51,10 +51,10 @@ const Registration = () => {
       return;
     }
 
-    if (!userRole) {
-      toastDealing("Role is required", "danger");
-      return;
-    }
+    // if (!userRole) {
+    //   toastDealing("Role is required", "danger");
+    //   return;
+    // }
 
 
     const newUser = {
