@@ -1,13 +1,29 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import React, { useState } from 'react'
+ import Navbar from './Components/Navbar'
+ import { BrowserRouter, Routes, Route } from 'react-router-dom'
+ import Registration from './Pages/Registration'
+import Login from './Pages/Login'
+// import Hooks from './Pages/Hooks'
+import List from './Pages/List'
+import Update from './Pages/Update'
+import Login from './Pages/Login'
 
 const App = () => {
+
   return (
-    <div>
-      hello puttar rafay
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Registration />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Update/:userId" element={<Update />} /> 
+        <Route path="List" element={<List />} />
+      </Routes>
+
+    </BrowserRouter>
+
   )
+
 }
 
-export default App
+export default App;
