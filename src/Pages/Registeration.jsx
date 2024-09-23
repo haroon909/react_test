@@ -144,7 +144,7 @@ console.log(newUser);
               type="text"
               className="form-control"
               placeholder="Kaya khaas naam hai tumara"
-              value={userLName}
+            //   value={userLName}
               onChange={(e) => setUserNickName(e.target.value)}
             />
           </div>
