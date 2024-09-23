@@ -7,9 +7,6 @@ const Registration = () => {
   const [userLName, setUserLName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [UserPassword, setUserPassword] = useState("");
-  const [userHeight, setUserHeight] = useState("");
-  const [userWeight, setUserWeight] = useState("");
-  const [userGender, setUserGender] = useState("");
   const [userRole, setUserRole] = useState("");
 
 
