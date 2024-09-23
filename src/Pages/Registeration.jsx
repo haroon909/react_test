@@ -65,7 +65,7 @@ const Registration = () => {
       password: UserPassword,
       role: userRole,
     };
-
+console.log(newUser);
     try {
       const response = await fetch(
         "https://66d806e137b1cadd8053106b.mockapi.io/Users",
