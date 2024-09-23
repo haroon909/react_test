@@ -179,7 +179,7 @@ console.log(newUser);
             />
           </div>
           <input
-          hidden
+          
                 type="text"
                 className="form-control"
                 Value={'customer'}
