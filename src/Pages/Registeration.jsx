@@ -161,7 +161,6 @@ const Registration = () => {
               <input
                 type="text"
                 className="form-control"
-                id="lastName"
                 placeholder="Also SomeOne"
                 value={userLName}
                 onChange={(e) => setUserLName(e.target.value)}
