@@ -161,7 +161,7 @@ const Registration = () => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Also SomeOne"
+                placeholder="Kaya khaas naam hai tumara"
                 value={userLName}
                 onChange={(e) => setUserLName(e.target.value)}
               />
