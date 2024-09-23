@@ -76,10 +76,6 @@ const Registration = () => {
       lname: userLName,
       email: userEmail,
       password: UserPassword,
-      gender: userGender,
-      height: userHeight,
-      weight: userWeight,
-      course: userCourse,
       role: userRole,
     };
 
