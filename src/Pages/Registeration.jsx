@@ -46,16 +46,6 @@ const Registration = () => {
       return;
     }
 
-    if (!userHeight) {
-      toastDealing("Height is required", "danger");
-      return;
-    }
-
-    if (!userWeight) {
-      toastDealing("Weight is required", "danger");
-      return;
-    }
-
     if (!userGender) {
       toastDealing("Gender is required", "danger");
       return;
