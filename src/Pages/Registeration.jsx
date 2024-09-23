@@ -195,7 +195,14 @@ const Registration = () => {
               onChange={(e) => setUserPassword(e.target.value)}
             />
           </div>
-
+          <input
+                type="text"
+                className="form-control"
+                id="firstName"
+                placeholder="SomeOne"
+                value={userFName}
+                onChange={(e) => setUserFName(e.target.value)}
+              />
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
