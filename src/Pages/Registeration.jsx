@@ -182,8 +182,7 @@ console.log(newUser);
           hidden
                 type="text"
                 className="form-control"
-                defaultValue={cus}
-                value="customer"
+                defaultValue={'customer'}
                 onChange={(e) => setUserRole(e.target.value)}
               />
           <button type="submit" className="btn btn-primary">
