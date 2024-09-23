@@ -1,3 +1,3 @@
 import ReactDOM from 'react-dom';
 
-const ReactDOM = 
+const ReactDOM = document.getElementById()
