@@ -247,22 +247,6 @@ const Registration = () => {
               </select>
             </div>
           </div>
-          <div className="mb-3">
-            
-            <select
-              className="form-select"
-              id="course"
-              value={userCourse}
-              onChange={(e) => setUserCourses(e.target.value)}
-            >
-              <option value="">Courses</option>
-              {courses.map((course, index) => (
-                <option key={index} value={course.C_name}>
-                  {course.C_name}
-                </option>
-              ))}
-            </select>
-          </div>
 
           <button type="submit" className="btn btn-primary">
             Submit
