@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Registration = () => {
   const [userFName, setUserFName] = useState("");
   const [userLName, setUserLName] = useState("");
-  const [user, setUserLName] = useState("");
+  const [userNickName, setUser] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [UserPassword, setUserPassword] = useState("");
   const [userRole, setUserRole] = useState("");
