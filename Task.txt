@@ -1,7 +1,7 @@
 Make registration and login system by using following instructions .
 
-1 - registration form contain following fields like , full name , nickname , email and password.
-login contain fields like nickname and password  
-2- validation will be there and visible by use of react - toastify
+1- Registration form contain following fields like , full name , nickname , email and password.
+2- login contain fields like nickname and password  
+2- Validation will be there and visible by use of react - toastify
 3 - already added  nickname and email are not  able to register again and show toast like already taken 
 4- user can login by using nick name and password if user role is admin  that will redirect to admin panel otherwise customer panel
