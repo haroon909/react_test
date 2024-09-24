@@ -52,7 +52,6 @@ const Registration = () => {
     }
 
     try {
-      // Fetch existing users to check for duplicates
       const response = await fetch(
         "https://66d806e137b1cadd8053106b.mockapi.io/Users"
       );
