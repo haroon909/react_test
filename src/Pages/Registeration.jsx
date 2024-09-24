@@ -10,6 +10,10 @@ const Registration = () => {
   const [UserPassword, setUserPassword] = useState("");
   const [userRole, setUserRole] = useState("");
 
+  useEffect(() => {
+    setUserRole("customer");
+  }, []);
+
   const toastDealing = (message, type) => {
     if (type === "danger") {
       toast.error(message, {
@@ -47,15 +51,9 @@ const Registration = () => {
     }
 
     if (!userNickName) {
-      toastDealing("Gender is required", "danger");
+      toastDealing("Nickname is required", "danger");
       return;
     }
-
-    // if (!userRole) {
-    //   toastDealing("Role is required", "danger");
-    //   return;
-    // }
-
 
     const newUser = {
       fname: userFName,
@@ -65,43 +63,26 @@ const Registration = () => {
       password: UserPassword,
       role: userRole,
     };
-console.log(newUser);
-//     try {
-//       const response = await fetch(
-//         "https://66d806e137b1cadd8053106b.mockapi.io/Users",
-//         {
-//           method: "POST",
-//           headers: { "Content-Type": "application/json" },
-//           body: JSON.stringify(newUser),
-//         }
-//       );
-//       if (response.ok) {
-//         toastDealing("User registered successfully!", "success");
-//       } else {
-//         throw new Error("Failed to register user.");
-//       }
-//     } catch (error) {
-//       toastDealing(error.message, "danger");
-//     }
+    console.log(newUser);
+
+    // try {
+    //   const response = await fetch(
+    //     "https://66d806e137b1cadd8053106b.mockapi.io/Users",
+    //     {
+    //       method: "POST",
+    //       headers: { "Content-Type": "application/json" },
+    //       body: JSON.stringify(newUser),
+    //     }
+    //   );
+    //   if (response.ok) {
+    //     toastDealing("User registered successfully!", "success");
+    //   } else {
+    //     throw new Error("Failed to register user.");
+    //   }
+    // } catch (error) {
+    //   toastDealing(error.message, "danger");
+    // }
   };
-
-  //   const fetchCourses = async () => {
-  //     try {
-  //       const response = await fetch("https://66d806e137b1cadd8053106b.mockapi.io/Courses");
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setCourses(data);
-  //       } else {
-  //         throw new Error("Failed to fetch courses.");
-  //       }
-  //     } catch (error) {
-  //       toastDealing(error.message, "danger");
-  //     }
-  //   };
-
-  //   useEffect(() => {
-  //     fetchCourses();
-  //   }, []);
 
   return (
     <>
@@ -143,8 +124,8 @@ console.log(newUser);
             <input
               type="text"
               className="form-control"
-              placeholder="Kaya khaas naam hai tumara"
-            //   value={userLName}
+              placeholder="Enter your nickname"
+              value={userNickName}
               onChange={(e) => setUserNickName(e.target.value)}
             />
           </div>
@@ -178,13 +159,6 @@ console.log(newUser);
               onChange={(e) => setUserPassword(e.target.value)}
             />
           </div>
-          <input
-          
-                type="text"
-                className="form-control"
-                Value={'customer'}
-                onChange={(e) => setUserRole(e.target.value)}
-              />
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
