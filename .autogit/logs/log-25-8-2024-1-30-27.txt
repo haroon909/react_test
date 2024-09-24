@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+Wed Sep 25 2024 01:30:27 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/Pages/Registeration.jsx
+
+
+Created files:
+* .autogit/logs/log-25-8-2024-1-29-56.txt
+
+
+Deleted files:
+
+
+Renamed files:

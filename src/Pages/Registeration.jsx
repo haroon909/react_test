@@ -1,30 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Registration = ({ users }) => {
+const Registration = () => {
   const [userFName, setUserFName] = useState("");
+  const [userLName, setUserLName] = useState("");
   const [userNickName, setUserNickName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [UserPassword, setUserPassword] = useState("");
+  const [userRole, setUserRole] = useState("");
 
   const toastDealing = (message, type) => {
-    type === "danger"
-      ? toast.error(message, { position: "bottom-right" })
-      : toast.success(message, { position: "bottom-right" });
+    if (type === "danger") {
+      toast.error(message, {
+        position: "bottom-right",
+      });
+    } else {
+      toast.success(message, {
+        position: "bottom-right",
+      });
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validation
     if (!userFName) {
-      toastDealing("Full name is required", "danger");
+      toastDealing("First name is required", "danger");
       return;
     }
 
-    if (!userNickName) {
-      toastDealing("Nickname is required", "danger");
+    if (!userLName) {
+      toastDealing("Last name is required", "danger");
       return;
     }
 
@@ -38,58 +46,105 @@ const Registration = ({ users }) => {
       return;
     }
 
-    // Check if nickname or email already exists
-    const isNicknameTaken = users.some((user) => user.nickname === userNickName);
-    const isEmailTaken = users.some((user) => user.email === userEmail);
-
-    if (isNicknameTaken) {
-      toastDealing("Nickname already taken", "danger");
+    if (!userNickName) {
+      toastDealing("Gender is required", "danger");
       return;
     }
 
-    if (isEmailTaken) {
-      toastDealing("Email already registered", "danger");
-      return;
-    }
+    // if (!userRole) {
+    //   toastDealing("Role is required", "danger");
+    //   return;
+    // }
 
-    // Add user to the list (This should be sent to a backend or a mock database)
+
     const newUser = {
       fname: userFName,
+      lname: userLName,
       nickname: userNickName,
       email: userEmail,
       password: UserPassword,
+      role: userRole,
     };
-
-    console.log("User Registered: ", newUser);
-    toastDealing("User registered successfully!", "success");
+console.log(newUser);
+//     try {
+//       const response = await fetch(
+//         "https://66d806e137b1cadd8053106b.mockapi.io/Users",
+//         {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify(newUser),
+//         }
+//       );
+//       if (response.ok) {
+//         toastDealing("User registered successfully!", "success");
+//       } else {
+//         throw new Error("Failed to register user.");
+//       }
+//     } catch (error) {
+//       toastDealing(error.message, "danger");
+//     }
   };
+
+  //   const fetchCourses = async () => {
+  //     try {
+  //       const response = await fetch("https://66d806e137b1cadd8053106b.mockapi.io/Courses");
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setCourses(data);
+  //       } else {
+  //         throw new Error("Failed to fetch courses.");
+  //       }
+  //     } catch (error) {
+  //       toastDealing(error.message, "danger");
+  //     }
+  //   };
+
+  //   useEffect(() => {
+  //     fetchCourses();
+  //   }, []);
 
   return (
     <>
       <div className="container mt-5">
         <h2 className="text-start">Registration Form</h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="fullName" className="form-label">
-              Full Name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter your full name"
-              value={userFName}
-              onChange={(e) => setUserFName(e.target.value)}
-            />
+          <div className="mb-3 mt-5 row">
+            <div className="col">
+              <label htmlFor="firstName" className="form-label">
+                First Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="firstName"
+                placeholder="SomeOne"
+                value={userFName}
+                onChange={(e) => setUserFName(e.target.value)}
+              />
+            </div>
+            <div className="col">
+              <label htmlFor="lastName" className="form-label">
+                Last Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="lastName"
+                placeholder="Also SomeOne"
+                value={userLName}
+                onChange={(e) => setUserLName(e.target.value)}
+              />
+            </div>
           </div>
-          <div className="mb-3">
-            <label htmlFor="nickName" className="form-label">
-              Nickname
+          <div className="mb-3 mt-5">
+            <label htmlFor="NickName" className="form-label">
+              NickName
             </label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter your nickname"
-              value={userNickName}
+              placeholder="Kaya khaas naam hai tumara"
+            //   value={userLName}
               onChange={(e) => setUserNickName(e.target.value)}
             />
           </div>
@@ -100,10 +155,15 @@ const Registration = ({ users }) => {
             <input
               type="email"
               className="form-control"
-              placeholder="Enter your email"
+              id="email"
+              aria-describedby="emailHelp"
+              placeholder="someone@something.whatever"
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
             />
+            <div id="emailHelp" className="form-text">
+              We'll never share your email with anyone else.
+            </div>
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
@@ -112,13 +172,21 @@ const Registration = ({ users }) => {
             <input
               type="password"
               className="form-control"
-              placeholder="Enter your password"
+              id="password"
+              placeholder="********"
               value={UserPassword}
               onChange={(e) => setUserPassword(e.target.value)}
             />
           </div>
+          <input
+          
+                type="text"
+                className="form-control"
+                Value={'customer'}
+                onChange={(e) => setUserRole(e.target.value)}
+              />
           <button type="submit" className="btn btn-primary">
-            Register
+            Submit
           </button>
         </form>
       </div>
