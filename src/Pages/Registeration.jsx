@@ -1,53 +1,32 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 const Registration = () => {
   const [userFName, setUserFName] = useState("");
   const [userLName, setUserLName] = useState("");
-  const [userNickName, setUserNickName] = useState("");
+  const [userUserName, setUserUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [userRole, setUserRole] = useState("customer");
 
+  const navigate = useNavigate();
+
   const toastDealing = (message, type) => {
-    if (type === "danger") {
-      toast.error(message, {
-        position: "bottom-right",
-      });
-    } else {
-      toast.success(message, {
-        position: "bottom-right",
-      });
-    }
+    type === "danger" ? toast.error(message) : toast.success(message);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    
-    if (!userFName) {
-      toastDealing("First name is required", "danger");
-      return;
-    }
-
-    if (!userLName) {
-      toastDealing("Last name is required", "danger");
-      return;
-    }
-
-    if (!userEmail) {
-      toastDealing("Email is required", "danger");
-      return;
-    }
-
-    if (!userPassword) {
-      toastDealing("Password is required", "danger");
-      return;
-    }
-
-    if (!userNickName) {
-      toastDealing("Nickname is required", "danger");
+    if (
+      !userFName ||
+      !userLName ||
+      !userEmail ||
+      !userPassword ||
+      !userUserName
+    ) {
+      toastDealing("All fields are required", "danger");
       return;
     }
 
@@ -57,15 +36,15 @@ const Registration = () => {
       );
       const existingUsers = await response.json();
 
-      const isNickNameTaken = existingUsers.some(
-        (user) => user.nickname === userNickName
+      const isUserNameTaken = existingUsers.some(
+        (user) => user.uname === userUserName
       );
       const isEmailTaken = existingUsers.some(
         (user) => user.email === userEmail
       );
 
-      if (isNickNameTaken) {
-        toastDealing("Username Not available", "danger");
+      if (isUserNameTaken) {
+        toastDealing("Username not available", "danger");
         return;
       }
 
@@ -77,7 +56,7 @@ const Registration = () => {
       const newUser = {
         fname: userFName,
         lname: userLName,
-        uname: userNickName,
+        uname: userUserName,
         email: userEmail,
         password: userPassword,
         role: userRole,
@@ -94,6 +73,9 @@ const Registration = () => {
 
       if (postResponse.ok) {
         toastDealing("User registered successfully!", "success");
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
       } else {
         throw new Error("Failed to register user.");
       }
@@ -116,7 +98,6 @@ const Registration = () => {
                 type="text"
                 className="form-control"
                 id="firstName"
-                placeholder="SomeOne"
                 value={userFName}
                 onChange={(e) => setUserFName(e.target.value)}
               />
@@ -129,22 +110,20 @@ const Registration = () => {
                 type="text"
                 className="form-control"
                 id="lastName"
-                placeholder="Also SomeOne"
                 value={userLName}
                 onChange={(e) => setUserLName(e.target.value)}
               />
             </div>
           </div>
-          <div className="mb-3 mt-5">
-            <label htmlFor="NickName" className="form-label">
-              Nickname
+          <div className="mb-3">
+            <label htmlFor="UserName" className="form-label">
+              Username
             </label>
             <input
               type="text"
               className="form-control"
-              placeholder="Your unique nickname"
-              value={userNickName}
-              onChange={(e) => setUserNickName(e.target.value)}
+              value={userUserName}
+              onChange={(e) => setUserUserName(e.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -155,13 +134,9 @@ const Registration = () => {
               type="email"
               className="form-control"
               id="email"
-              placeholder="someone@something.com"
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
             />
-            <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
-            </div>
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
@@ -171,12 +146,10 @@ const Registration = () => {
               type="password"
               className="form-control"
               id="password"
-              placeholder="********"
               value={userPassword}
               onChange={(e) => setUserPassword(e.target.value)}
             />
           </div>
-  
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
