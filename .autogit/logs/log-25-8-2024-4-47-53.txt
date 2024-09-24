@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+Wed Sep 25 2024 04:47:53 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* .autogit/autogit.json
+* src/App.jsx
+* src/Pages/Login.jsx
+* src/Pages/Registeration.jsx
+* src/components/Navbar.jsx
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:
