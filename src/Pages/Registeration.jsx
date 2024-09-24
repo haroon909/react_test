@@ -25,7 +25,7 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation
+    
     if (!userFName) {
       toastDealing("First name is required", "danger");
       return;
