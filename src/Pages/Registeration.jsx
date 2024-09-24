@@ -65,7 +65,7 @@ const Registration = () => {
       );
 
       if (isNickNameTaken) {
-        toastDealing("Username is already taken", "danger");
+        toastDealing("Username Not available", "danger");
         return;
       }
 
