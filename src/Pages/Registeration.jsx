@@ -53,7 +53,7 @@ const Registration = () => {
 
     try {
       const response = await fetch(
-        "https://66d806e137b1cadd8053106b.mockapi.io/Users"
+        "https://66f1178a41537919154f7ad2.mockapi.io/React_test/Accounts"
       );
       const existingUsers = await response.json();
 
