@@ -1,6 +1,6 @@
 {
   "runOnStart": true,
-  "updateInterval": 10,
+  "updateInterval": 1,
   "logging": true,
   "silent": true,
   "commitMessage": "--- Auto Git Commit ---",
