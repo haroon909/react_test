@@ -176,12 +176,7 @@ const Registration = () => {
               onChange={(e) => setUserPassword(e.target.value)}
             />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            value={setUserRole}
-            onChange={(e) => setUserEmail(e.target.value)}
-          />
+  
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
