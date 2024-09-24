@@ -179,8 +179,7 @@ const Registration = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="someone@something.com"
-            value={userEmail}
+            value={setUserRole}
             onChange={(e) => setUserEmail(e.target.value)}
           />
           <button type="submit" className="btn btn-primary">
