@@ -58,7 +58,6 @@ const Registration = () => {
       );
       const existingUsers = await response.json();
 
-      // Check if the nickname or email is already taken
       const isNickNameTaken = existingUsers.some(
         (user) => user.nickname === userNickName
       );
@@ -76,7 +75,6 @@ const Registration = () => {
         return;
       }
 
-      // If validation passes, create the new user object
       const newUser = {
         fname: userFName,
         lname: userLName,
