@@ -85,23 +85,7 @@ console.log(newUser);
 //     }
   };
 
-  //   const fetchCourses = async () => {
-  //     try {
-  //       const response = await fetch("https://66d806e137b1cadd8053106b.mockapi.io/Courses");
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setCourses(data);
-  //       } else {
-  //         throw new Error("Failed to fetch courses.");
-  //       }
-  //     } catch (error) {
-  //       toastDealing(error.message, "danger");
-  //     }
-  //   };
 
-  //   useEffect(() => {
-  //     fetchCourses();
-  //   }, []);
 
   return (
     <>
