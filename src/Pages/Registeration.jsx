@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -7,8 +7,8 @@ const Registration = () => {
   const [userLName, setUserLName] = useState("");
   const [userNickName, setUserNickName] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const [UserPassword, setUserPassword] = useState("");
-  const [userRole, setUserRole] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const [userRole, setUserRole] = useState("customer");
 
   const toastDealing = (message, type) => {
     if (type === "danger") {
@@ -41,33 +41,53 @@ const Registration = () => {
       return;
     }
 
-    if (!UserPassword) {
+    if (!userPassword) {
       toastDealing("Password is required", "danger");
       return;
     }
 
     if (!userNickName) {
-      toastDealing("Gender is required", "danger");
+      toastDealing("Nickname is required", "danger");
       return;
     }
 
-    // if (!userRole) {
-    //   toastDealing("Role is required", "danger");
-    //   return;
-    // }
-
-
-    const newUser = {
-      fname: userFName,
-      lname: userLName,
-      nickname: userNickName,
-      email: userEmail,
-      password: UserPassword,
-      role: userRole,
-    };
-console.log(newUser);
     try {
+      // Fetch existing users to check for duplicates
       const response = await fetch(
+        "https://66d806e137b1cadd8053106b.mockapi.io/Users"
+      );
+      const existingUsers = await response.json();
+
+      // Check if the nickname or email is already taken
+      const isNickNameTaken = existingUsers.some(
+        (user) => user.nickname === userNickName
+      );
+      const isEmailTaken = existingUsers.some(
+        (user) => user.email === userEmail
+      );
+
+      if (isNickNameTaken) {
+        toastDealing("Nickname is already taken", "danger");
+        return;
+      }
+
+      if (isEmailTaken) {
+        toastDealing("Email is already registered", "danger");
+        return;
+      }
+
+      // If validation passes, create the new user object
+      const newUser = {
+        fname: userFName,
+        lname: userLName,
+        nickname: userNickName,
+        email: userEmail,
+        password: userPassword,
+        role: userRole,
+      };
+
+      // Send POST request to create the new user
+      const postResponse = await fetch(
         "https://66d806e137b1cadd8053106b.mockapi.io/Users",
         {
           method: "POST",
@@ -75,7 +95,8 @@ console.log(newUser);
           body: JSON.stringify(newUser),
         }
       );
-      if (response.ok) {
+
+      if (postResponse.ok) {
         toastDealing("User registered successfully!", "success");
       } else {
         throw new Error("Failed to register user.");
@@ -84,8 +105,6 @@ console.log(newUser);
       toastDealing(error.message, "danger");
     }
   };
-
-
 
   return (
     <>
@@ -122,13 +141,13 @@ console.log(newUser);
           </div>
           <div className="mb-3 mt-5">
             <label htmlFor="NickName" className="form-label">
-              NickName
+              Nickname
             </label>
             <input
               type="text"
               className="form-control"
-              placeholder="Kaya khaas naam hai tumara"
-            //   value={userLName}
+              placeholder="Your unique nickname"
+              value={userNickName}
               onChange={(e) => setUserNickName(e.target.value)}
             />
           </div>
@@ -140,8 +159,7 @@ console.log(newUser);
               type="email"
               className="form-control"
               id="email"
-              aria-describedby="emailHelp"
-              placeholder="someone@something.whatever"
+              placeholder="someone@something.com"
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
             />
@@ -158,17 +176,10 @@ console.log(newUser);
               className="form-control"
               id="password"
               placeholder="********"
-              value={UserPassword}
+              value={userPassword}
               onChange={(e) => setUserPassword(e.target.value)}
             />
           </div>
-          <input
-          
-                type="text"
-                className="form-control"
-                Value={'customer'}
-                onChange={(e) => setUserRole(e.target.value)}
-              />
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
