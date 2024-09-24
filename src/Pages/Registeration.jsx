@@ -65,7 +65,7 @@ const Registration = () => {
       );
 
       if (isNickNameTaken) {
-        toastDealing("Nickname is already taken", "danger");
+        toastDealing("Username is already taken", "danger");
         return;
       }
 
@@ -83,7 +83,6 @@ const Registration = () => {
         role: userRole,
       };
 
-      // Send POST request to create the new user
       const postResponse = await fetch(
         "https://66d806e137b1cadd8053106b.mockapi.io/Users",
         {
